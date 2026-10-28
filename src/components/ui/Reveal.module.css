@@ -1,0 +1,25 @@
+.reveal {
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
+}
+
+:global(html.js) .reveal:not(.visible) {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(22px);
+}
+
+.reveal.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(html.js) .reveal:not(.visible) {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+}

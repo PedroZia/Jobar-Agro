@@ -1,0 +1,176 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  padding-top: max(calc(28 * var(--u)), 20px);
+  color: var(--white);
+  transition:
+    background-color 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    color 0.18s var(--ease-out);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-inline: var(--page);
+}
+
+.logoLink {
+  display: flex;
+  flex: none;
+  align-items: center;
+  transition: opacity 0.2s var(--ease-out);
+}
+
+.logo {
+  width: 76px;
+}
+
+.logoLink:hover {
+  opacity: 0.88;
+}
+
+.pill,
+.menuButton {
+  position: relative;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+}
+
+.pill::before,
+.menuButton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    100deg,
+    var(--glass-edge) 0%,
+    var(--glass-edge-soft) 22%,
+    var(--glass-edge-soft) 78%,
+    var(--glass-edge) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  height: max(calc(50 * var(--u)), 36px);
+  padding-inline: clamp(18px, calc(28 * var(--u)), 28px);
+  border-radius: 99px;
+  gap: clamp(16px, calc(31 * var(--u)), 31px);
+}
+
+.link {
+  font-size: max(calc(14 * var(--u)), 12px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  opacity: 0.92;
+  transition: opacity 0.2s var(--ease-out);
+}
+
+.link:hover {
+  opacity: 0.6;
+}
+
+.menuButton {
+  flex: none;
+  height: max(calc(50 * var(--u)), 36px);
+  padding-inline: clamp(18px, calc(24 * var(--u)), 24px);
+  border-radius: 99px;
+  color: inherit;
+  font-size: max(calc(14 * var(--u)), 12px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  transition:
+    background-color 0.2s var(--ease-out),
+    opacity 0.2s var(--ease-out);
+}
+
+.menuButton:hover {
+  background: var(--glass-strong);
+}
+
+.scrolled {
+  background: rgba(246, 243, 234, 0.9);
+  color: var(--forest);
+  box-shadow: 0 1px 0 var(--line-soft);
+  backdrop-filter: blur(16px);
+}
+
+.scrolled .logo {
+  --logo-top: var(--forest);
+  --logo-bottom: var(--leaf);
+}
+
+.scrolled .pill {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.scrolled .pill::before {
+  background: linear-gradient(
+    100deg,
+    rgba(33, 91, 53, 0.28) 0%,
+    rgba(33, 91, 53, 0.06) 22%,
+    rgba(33, 91, 53, 0.06) 78%,
+    rgba(33, 91, 53, 0.28) 100%
+  );
+}
+
+.scrolled .menuButton {
+  background: rgba(33, 91, 53, 0.06);
+}
+
+.scrolled .menuButton::before {
+  background: linear-gradient(
+    100deg,
+    rgba(33, 91, 53, 0.24) 0%,
+    rgba(33, 91, 53, 0.05) 22%,
+    rgba(33, 91, 53, 0.05) 78%,
+    rgba(33, 91, 53, 0.24) 100%
+  );
+}
+
+.scrolled .menuButton:hover {
+  background: rgba(33, 91, 53, 0.11);
+}
+
+@media (max-width: 1023px) {
+  .header {
+    padding-top: 20px;
+  }
+
+  .row {
+    padding-inline: 20px;
+  }
+
+  .logo {
+    width: 66px;
+  }
+
+  .pill {
+    display: none;
+  }
+
+  .menuButton {
+    height: min(max(calc(43 * var(--u)), 38px), 48px);
+    padding-inline: max(calc(20 * var(--u)), 16px);
+    background: var(--glass-strong);
+    font-size: min(max(calc(16 * var(--u)), 13px), 16px);
+  }
+}

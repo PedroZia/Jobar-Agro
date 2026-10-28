@@ -1,0 +1,15 @@
+.logo {
+  --logo-top: var(--white);
+  --logo-bottom: var(--lime);
+
+  display: block;
+  width: 68px;
+  aspect-ratio: 5055 / 3284;
+  background: linear-gradient(
+    180deg,
+    var(--logo-top) 0 49%,
+    var(--logo-bottom) 49% 100%
+  );
+  -webkit-mask: url("/assets/logo-jobar.png") center / contain no-repeat;
+  mask: url("/assets/logo-jobar.png") center / contain no-repeat;
+}

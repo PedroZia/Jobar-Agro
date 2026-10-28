@@ -1,0 +1,253 @@
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  overflow-y: auto;
+  background: var(--cream);
+  color: var(--forest);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.3s var(--ease-out),
+    visibility 0.3s var(--ease-out);
+}
+
+.drawer.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: min(1440px, 100%);
+  min-height: 100svh;
+  margin-inline: auto;
+  padding: 24px var(--gutter) 36px;
+  transform: translateY(-16px);
+  transition: transform 0.45s var(--ease-out);
+}
+
+.open .panel {
+  transform: none;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logoLink {
+  display: inline-flex;
+}
+
+.drawer .logo {
+  --logo-top: var(--forest);
+  --logo-bottom: var(--leaf);
+  width: 92px;
+}
+
+.close {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    background-color 0.2s var(--ease-out),
+    color 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out);
+}
+
+.close:hover {
+  border-color: var(--forest);
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.grid {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(40px, 7vw, 120px);
+  padding-block: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.column {
+  min-width: 0;
+}
+
+.kicker {
+  margin-bottom: 22px;
+  color: rgba(33, 91, 53, 0.62);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.siteList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.siteLink {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding-block: 5px;
+  border-bottom: 1px solid transparent;
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4.3vw, 60px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  transition:
+    color 0.2s var(--ease-out),
+    transform 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out);
+}
+
+.siteLink:hover {
+  border-color: var(--line);
+  color: var(--forest-soft);
+  transform: translateX(6px);
+}
+
+.index {
+  flex: none;
+  color: rgba(33, 91, 53, 0.38);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.storeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
+}
+
+.storeLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-block: 10px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.3;
+  transition: color 0.2s var(--ease-out);
+}
+
+.storeLink svg {
+  flex: none;
+  opacity: 0;
+  transform: translate(-3px, 3px);
+  transition:
+    opacity 0.2s var(--ease-out),
+    transform 0.2s var(--ease-out);
+}
+
+.storeLink:hover {
+  color: var(--forest-soft);
+}
+
+.storeLink:hover svg {
+  opacity: 1;
+  transform: none;
+}
+
+.bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+}
+
+.whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding-block: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s var(--ease-out);
+}
+
+.whatsapp:hover {
+  color: var(--forest-soft);
+}
+
+.contact {
+  max-width: 360px;
+  color: rgba(23, 36, 43, 0.62);
+  font-size: 13px;
+  line-height: 1.65;
+  text-align: right;
+}
+
+.phone {
+  display: inline-block;
+  margin-bottom: 3px;
+  color: var(--forest);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .panel {
+    gap: 28px;
+    padding: 20px 20px 32px;
+  }
+
+  .drawer .logo {
+    width: 78px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-block: 24px;
+  }
+
+  .siteLink {
+    font-size: clamp(32px, 8.5vw, 46px);
+  }
+
+  .storeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+
+  .contact {
+    max-width: none;
+    text-align: left;
+  }
+}

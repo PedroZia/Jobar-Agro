@@ -1,0 +1,16 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: calc(40 * var(--u));
+  height: calc(40 * var(--u));
+  border-radius: 50%;
+  background: var(--cursor);
+  box-shadow: 0 0 0 1px rgba(23, 36, 43, 0.07);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform;
+  transition: opacity 0.2s linear;
+}

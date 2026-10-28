@@ -1,0 +1,324 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  height: 100svh;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 100%,
+    var(--sky-0) 0%,
+    var(--sky-1) 27.5%,
+    var(--sky-2) 55%,
+    var(--sky-3) 77.5%,
+    var(--sky-4) 100%
+  );
+  color: var(--white);
+}
+
+.top {
+  display: contents;
+}
+
+.headline {
+  position: absolute;
+  left: calc(28 * var(--u));
+  top: calc(114.5 * var(--u));
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: calc(8 * var(--u));
+  font-weight: 400;
+  text-shadow: 0 2px 60px rgba(8, 40, 72, 0.14);
+}
+
+.line1,
+.line2 {
+  display: block;
+  white-space: nowrap;
+  line-height: 1;
+  text-box: trim-both cap alphabetic;
+}
+
+.line1 {
+  font-family: var(--font-serif);
+  font-size: calc(184 * var(--u));
+  font-style: italic;
+  letter-spacing: -0.06em;
+}
+
+.line2 {
+  font-family: var(--font-sans);
+  font-size: calc(170 * var(--u));
+  letter-spacing: -0.06em;
+}
+
+.char {
+  display: inline-block;
+  white-space: pre;
+  will-change: transform, filter, opacity;
+}
+
+.body {
+  --body-size: calc(20 * var(--u));
+  --body-leading: calc(22 * var(--u));
+
+  color: rgba(255, 255, 255, 0.92);
+  font-size: var(--body-size);
+  font-weight: 500;
+  line-height: var(--body-leading);
+  letter-spacing: -0.02em;
+  text-box: trim-both cap alphabetic;
+  text-shadow: 0 1px 30px rgba(8, 40, 72, 0.14);
+}
+
+.lead {
+  position: absolute;
+  top: calc(162 * var(--u));
+  right: calc(34 * var(--u));
+  z-index: 2;
+  width: calc(319 * var(--u));
+  text-wrap: pretty;
+}
+
+.action {
+  position: absolute;
+  right: calc(28 * var(--u));
+  bottom: calc(89 * var(--u));
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(28 * var(--u));
+  width: calc(325 * var(--u));
+}
+
+.actionText {
+  color: rgba(255, 255, 255, 0.92);
+  text-box: trim-both cap alphabetic;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(207 * var(--u));
+  height: calc(61 * var(--u));
+  border-radius: 99px;
+  background: var(--lime);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: max(calc(18 * var(--u)), 14px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  transition:
+    background-color 0.2s var(--ease-out),
+    transform 0.2s var(--ease-out);
+}
+
+.bottom {
+  position: absolute;
+  right: calc(28 * var(--u));
+  bottom: calc(28 * var(--u));
+  left: calc(28 * var(--u));
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--white);
+}
+
+.small {
+  font-size: max(calc(18 * var(--u)), 13px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.scrollCue {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: calc(12 * var(--u));
+}
+
+.circle {
+  display: grid;
+  flex: none;
+  width: calc(33 * var(--u));
+  height: calc(33 * var(--u));
+  place-items: center;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--black, #000000);
+}
+
+.arrow {
+  font-size: max(calc(18 * var(--u)), 14px);
+  line-height: 1;
+}
+
+.hint {
+  padding-left: calc(12 * var(--u));
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: max(calc(13 * var(--u)), 11px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.place {
+  flex: none;
+  white-space: nowrap;
+}
+
+.counter {
+  position: absolute;
+  right: calc(40 * var(--u));
+  bottom: calc(38 * var(--u));
+  z-index: 3;
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: calc(170 * var(--u));
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+  text-box: trim-both cap alphabetic;
+  text-shadow: 0 2px 40px rgba(8, 40, 72, 0.12);
+}
+
+.percent {
+  margin-left: 0.04em;
+  font-size: 0.25em;
+  letter-spacing: 0;
+}
+
+@supports not (text-box: trim-both cap alphabetic) {
+  .line1 {
+    margin: -0.12em 0 -0.16em;
+  }
+
+  .line2 {
+    margin: -0.14em 0;
+  }
+
+  .body {
+    margin-block: calc(var(--body-size) * 0.36 - var(--body-leading) / 2);
+  }
+
+  .counter {
+    margin: -0.14em 0;
+  }
+}
+
+@media (hover: hover) {
+  .cta:hover {
+    background: #dcff57;
+    transform: scale(1.03);
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    background: radial-gradient(
+      ellipse 263% 100% at 50% 100%,
+      var(--sky-0) 0%,
+      var(--sky-1) 15.9%,
+      var(--sky-2) 31.8%,
+      var(--sky-3) 58.4%,
+      var(--sky-4) 85%
+    );
+  }
+
+  .top {
+    position: absolute;
+    top: calc(126.7 * var(--u));
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: calc(28 * var(--u));
+    width: min(calc(100% - (40 * var(--u))), 560px);
+    transform: translateX(-50%);
+  }
+
+  .headline {
+    position: static;
+    gap: calc(8 * var(--u));
+  }
+
+  .line1 {
+    font-size: calc(79.3 * var(--u));
+  }
+
+  .line2 {
+    font-size: calc(73.2 * var(--u));
+    letter-spacing: -0.07em;
+  }
+
+  .body {
+    --body-size: calc(16 * var(--u));
+    --body-leading: calc(20 * var(--u));
+  }
+
+  .lead {
+    position: static;
+    width: 100%;
+  }
+
+  .action {
+    right: auto;
+    bottom: calc(98 * var(--u));
+    left: 50%;
+    gap: calc(28 * var(--u));
+    width: min(calc(100% - (40 * var(--u))), 560px);
+    transform: translateX(-50%);
+  }
+
+  .cta {
+    width: 100%;
+    max-width: 420px;
+    height: calc(61 * var(--u));
+    font-size: max(calc(18 * var(--u)), 14px);
+  }
+
+  .bottom {
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .small {
+    font-size: 16px;
+  }
+
+  .scrollCue {
+    gap: 12px;
+  }
+
+  .circle {
+    width: 33px;
+    height: 33px;
+  }
+
+  .arrow {
+    font-size: 18px;
+  }
+
+  .hint {
+    display: none;
+  }
+
+  .place {
+    font-size: 16px;
+  }
+
+  .counter {
+    right: 20px;
+    bottom: 24px;
+    font-size: calc(73.2 * var(--u));
+  }
+}

@@ -1,0 +1,58 @@
+.root {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.image {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + (92.5 * var(--u)));
+  width: max(calc(1482 * var(--u)), 102.92vw);
+  aspect-ratio: 2752 / 1536;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+.probe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100 * var(--u));
+  height: 1px;
+  visibility: hidden;
+}
+
+@media (max-width: 1023px) {
+  .clip {
+    inset: auto;
+    left: 50%;
+    top: calc(50% + (31.5 * var(--u)));
+    width: max(calc(826 * var(--u)), 110vw);
+    aspect-ratio: 826 / 345;
+    transform: translate(-50%, -50%);
+  }
+
+  .image {
+    left: 0;
+    top: -22.9%;
+    width: 100%;
+    height: auto;
+    transform: none;
+  }
+}
